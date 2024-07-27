@@ -14,7 +14,7 @@ namespace ECar
 
         public double BatteryCharge => batteryCharge;
 
-        public void ChargeBattery(double Value)
+        public void ChargeBattery(double Value) 
         {
             batteryCharge += Value;
             batteryCharge = Math.Clamp(batteryCharge, 0, batteryMaxCharge);
