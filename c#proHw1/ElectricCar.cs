@@ -7,22 +7,22 @@ namespace ECar
         private double batteryCharge = 0;
         private double batteryMaxCharge = 2000;
 
+        public double BatteryCharge { get { return batteryCharge; } private set { batteryCharge = value; } }
+
         public ElectricCar(string brand, string model, int YearOfCreation) : base(brand, model, YearOfCreation)
         {
-            this.batteryCharge = batteryMaxCharge;
+            BatteryCharge = batteryMaxCharge;
         }
-
-        public double BatteryCharge => batteryCharge;
-
+     
         public void ChargeBattery(double Value) 
         {
-            batteryCharge += Value;
-            batteryCharge = Math.Clamp(batteryCharge, 0, batteryMaxCharge);
+            BatteryCharge += Value;
+            BatteryCharge = Math.Clamp(BatteryCharge, 0, batteryMaxCharge);
         }
 
         public override float Drive(float Distance, float Time)
         {
-            batteryCharge -= Distance;
+            BatteryCharge -= Distance;
             return base.Drive(Distance, Time);
         }
     }
